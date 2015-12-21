@@ -26,6 +26,7 @@ Run `grunt` for building and `grunt serve` for preview.
 Файл `/app/scripts/controllers/form.js`
 
 ### Чтоб форму вывести нужно:
+
  #### наваять конфиг  в контроллере:
 
 ```
@@ -39,7 +40,7 @@ angular.module('testAppJsonApp')
     после добавления в конфиг можем сделать
     vm.fields = myConfig;
 ```
-### добавить дерективку в хтмл
+### добавить директивку в хтмл
 ~~~
 <form class="" name="" ng-contoller="FormCtrl as vm">
   <formly-form fields="vm.fields" form="vm.form" model="vm.model" options="vm.options">
