@@ -1,0 +1,11 @@
+.ace_editor {
+  height: 200px;
+  position: relative;
+  width: 100%;
+  margin-top: 2%;
+  display: block;
+  float: left;
+  overflow: hidden;
+  font: 12px/normal 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'source-code-pro', monospace;
+  direction: ltr;
+}
