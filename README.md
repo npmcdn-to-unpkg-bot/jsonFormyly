@@ -65,6 +65,7 @@ angular.module('testAppJsonApp')
 
 [Тут больше информации](https://github.com/kaflan/jsonFormyly/blob/master/app/scripts/controllers/form.js)
 #### Чтоб добавить новый объект-поле нужно
+
 Чтобы добавить новый елемент  нужно сделать html шаблон [вот как тут ](https://github.com/kaflan/jsonFormyly/blob/master/app/index.html)
 или вот кусок кода отуда
 
@@ -80,10 +81,15 @@ angular.module('testAppJsonApp')
  ~~~
 
  Вот так его подхватывает ангуляр и вставляет
+~~~
+ angular   .module('testAppJsonApp', [    
+  'formly', модуль который подключает нужный ангулярный плагин
+      'formlyBootstrap его бутстрап',
+      'ckeditor', //  иногда есть решение которые легко интегрированы в ангуляр один едитор  
+      'ui.ace' второй едитор(если нужно будет больше сделаем)   ],   function config(formlyConfigProvider) {   // set templates here     formlyConfigProvider.setType({         name: 'custom',  
+             extends: 'textarea',         templateUrl: 'number.html'       });
+~~~
 
- `angular`   `.module('testAppJsonApp', [`     `'ngAnimate',`     `'ngAria',`     `'ngCookies',`     `... еще модули ,`     `'formly', модуль который подключает нужный ангулярный плагин`     `'formlyBootstrap его бутстрап',`     `'ckeditor', //  иногда есть решение которые легко интегрированы в ангуляр один едитор`      `'ui.ace' второй едитор(если нужно будет больше сделаем)`   ],   `function config(formlyConfigProvider) {`   `// set templates here`     `formlyConfigProvider.setType({         name: 'custom',         extends: 'textarea',         templateUrl: 'number.html'       });`
-
-```
 указываем в конфиге провайдера, что где подключать и как, ангуляр сам все найдет, главное templateUrl которое совпадает с ID которое вы указали на странице главной
 `index.html`. Имя будет наследоваться уже контролеером.
 ```
