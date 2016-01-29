@@ -232,14 +232,22 @@ angular
       });
     }
   })
-  .config(function ($routeProvider) {
+  .config(function ($routeProvider,$locationProvider) {
     $routeProvider
-      .when('/', {
-        // templateUrl: 'views/main.html',
+      .when('/simple', {
+        templateUrl: 'views/simple.html'
+        // ,
+        // controller: 'MainCtrl',
+        // controllerAs: 'main'
+      })
+      .when('/onemore', {
+        templateUrl: 'views/onemore.html'
+        // ,
         // controller: 'MainCtrl',
         // controllerAs: 'main'
       })
       .otherwise({
         redirectTo: '/'
       });
+      $locationProvider.html5Mode(true).requireBase(false);
   });

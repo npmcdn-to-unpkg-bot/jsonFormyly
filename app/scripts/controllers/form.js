@@ -8,7 +8,7 @@
  * Controller of the testAppJsonApp
  */
 angular.module('testAppJsonApp')
-  .controller('FormCtrl', function() {
+  .controller('FormCtrl', function($location) {
     var vm = this;
     vm.model = {};
     vm.options = {};
@@ -224,7 +224,8 @@ angular.module('testAppJsonApp')
 
     function SimplePost() {
       // функция есть в конфиги и подхватывает контроллер
-      alert(vm.model);
+      alert(vm.model, "счас будет перход");
+      $location.path('/simple');
       //$http.post('url', model); // или весб обект модель шлем или нет?
     }
     // вот к примеру если у нас в кофиге там пут
