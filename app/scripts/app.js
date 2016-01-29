@@ -233,6 +233,7 @@ angular
     }
   })
   .config(function ($routeProvider,$locationProvider) {
+    $locationProvider.html5Mode(true);
     $routeProvider
       .when('/simple', {
         templateUrl: 'views/simple.html'
@@ -249,5 +250,5 @@ angular
       .otherwise({
         redirectTo: '/'
       });
-      $locationProvider.html5Mode(true).requireBase(false);
+
   });
