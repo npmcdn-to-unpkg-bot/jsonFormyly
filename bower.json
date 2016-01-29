@@ -12,9 +12,9 @@
     "angular-route": "^1.4.0",
     "angular-sanitize": "^1.4.0",
     "angular-touch": "^1.4.0",
-    "angular-bootstrap": "~0.14.3",
-    "ng-ckeditor": "~0.2.1",
-    "angular-ckeditor": "~1.0.0"
+    "angular-bootstrap": "latest",
+    "ng-ckeditor": "latest",
+    "angular-ckeditor": "latest"
   },
   "devDependencies": {
     "angular-mocks": "^1.4.0",
