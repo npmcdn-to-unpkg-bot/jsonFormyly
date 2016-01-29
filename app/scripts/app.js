@@ -235,6 +235,9 @@ angular
   .config(function ($routeProvider,$locationProvider) {
     $locationProvider.html5Mode(true);
     $routeProvider
+      .when('/',{
+        template: '<div class="container"><custom-form></custom-form></div>'
+      })
       .when('/simple', {
         templateUrl: 'views/simple.html'
         // ,
