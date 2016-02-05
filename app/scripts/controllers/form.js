@@ -63,33 +63,15 @@ angular.module('testAppJsonApp')
           minlength: 2
         }
       },   {
-        type: 'checkbox',
-        key: 'one',
-        templateOptions: {
-          label: 'Ангулфр',
-          value: '1'
-        }
-      }, {
-        type: 'checkbox',
-        key: 'two',
-        templateOptions: {
-          label: 'прелесть',
-          value: '12'
-        }
-      }, {
-        type: 'checkbox',
-        key: 'three',
-        templateOptions: {
-          label: 'отпусти меня',
-          value: '3'
-        }
-      }, {
-        type: 'checkbox',
-        key: 'four',
-        templateOptions: {
-          label: 'спать'
-        }
-      }, {
+  key: 'roles',
+  type: 'multiCheckbox',
+  templateOptions: {
+    label: 'Roles',
+    options: [{id: 1, title : "Administrator"}, {id: 2, title : "User"}],
+    valueProp: 'id',
+    labelProp: 'title'
+  }
+}, {
         "key": "triedEmber",
         "type": "radio",
         "templateOptions": {
