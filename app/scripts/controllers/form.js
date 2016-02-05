@@ -14,7 +14,17 @@ angular.module('testAppJsonApp')
     vm.options = {};
     vm.htmlEditor = '...';
     vm.code = "alert('hello world');";
-    var myConfig = [{
+    var myConfig = [
+      {
+         key: 'date',
+         type: 'datepicker',
+         templateOptions: {
+           label: 'Date 1',
+           type: 'text',
+           datepickerPopup: 'dd-MMMM-yyyy'
+         }
+     },
+      {
         type: 'editor',
         key: 'editor',
         noFormControl: true,
@@ -52,15 +62,7 @@ angular.module('testAppJsonApp')
           maxlength: 1000,
           minlength: 2
         }
-      }, {
-        key: 'date',
-        type: 'datepicker',
-        templateOptions: {
-          label: 'Date',
-          type: 'text',
-          datepickerPopup: 'dd-MMMM-yyyy'
-        }
-      }, {
+      },   {
         type: 'checkbox',
         key: 'one',
         templateOptions: {

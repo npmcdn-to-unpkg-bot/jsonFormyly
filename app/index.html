@@ -24,7 +24,7 @@
     <![endif]-->
 
   <!-- Add your site or application content here -->
-  
+
   <div class="ng-view">
 
   </div>
@@ -32,14 +32,21 @@
     <div ckeditor="options" ng-model="content" ready="onReady()"></div>
   </script>
   <script type="text/ng-template" id="datepicker.html">
-    <p class="input-group">
-      <input type="text" id="{{::id}}" name="{{::id}}" ng-model="model[options.key]" class="form-control" ng-click="datepicker.open($event)" datepicker-popup="{{to.datepickerOptions.format}}" is-open="datepicker.opened" datepicker-options="to.datepickerOptions"
-      />
-      <span class="input-group-btn">
-        <button type="button" class="btn btn-default" ng-click="datepicker.open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
-      </span>
-    </p>
-  </script>
+        <p class="input-group">
+          <input  type="text"
+                  id="{{::id}}"
+                  name="{{::id}}"
+                  ng-model="model[options.key]"
+                  class="form-control"
+                  ng-click="datepicker.open($event)"
+                  uib-datepicker-popup="{{to.datepickerOptions.format}}"
+                  is-open="datepicker.opened"
+                  datepicker-options="to.datepickerOptions" />
+          <span class="input-group-btn">
+              <button type="button" class="btn btn-default" ng-click="datepicker.open($event)" ng-disabled="to.disabled"><i class="glyphicon glyphicon-calendar"></i></button>
+          </span>
+        </p>
+      </script>
   <script type="text/ng-template" id="editor.html">
   <div ui-ace></div>
   </script>
@@ -79,7 +86,7 @@
   <!-- endbuild -->
   <script src="http://angular-ui.github.io/ui-ace/dist/ui-ace.js"></script>
   <script src="bower_components/ace-builds/src-min-noconflict/ace.js"></script>
-
+  <script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/1.0.3/ui-bootstrap-tpls.js"></script>
 
   <script src="//rawgit.com/formly-js/angular-formly/latest/dist/formly.js"></script>
   <script src="//rawgit.com/formly-js/angular-formly-templates-bootstrap/latest/dist/angular-formly-templates-bootstrap.js"></script>

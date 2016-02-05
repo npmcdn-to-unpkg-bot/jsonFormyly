@@ -21,6 +21,7 @@ angular
     'formly',
     'formlyBootstrap',
     'ckeditor',
+    'ui.bootstrap',
      'ui.ace'
   ],
     function config(formlyConfigProvider) {
@@ -180,29 +181,53 @@ angular
         }
       });
     })
-  .run(function(formlyConfig) {
-    var attributes = ['date-disabled', 'custom-class', 'show-weeks', 'starting-day',
-     'init-date', 'min-mode', 'max-mode', 'format-day',
-      'format-month', 'format-year', 'format-day-header',
-      'format-day-title', 'format-month-title', 'year-range',
-      'shortcut-propagation', 'datepicker-popup', 'show-button-bar',
-      'current-text', 'clear-text', 'close-text', 'close-on-date-selection',
-      'datepicker-append-to-body'];
-    var bindings = ['datepicker-mode', 'min-date', 'max-date'];
+    .run(function(formlyConfig) {
+    var attributes = [
+      'date-disabled',
+      'custom-class',
+      'show-weeks',
+      'starting-day',
+      'init-date',
+      'min-mode',
+      'max-mode',
+      'format-day',
+      'format-month',
+      'format-year',
+      'format-day-header',
+      'format-day-title',
+      'format-month-title',
+      'year-range',
+      'shortcut-propagation',
+      'datepicker-popup',
+      'show-button-bar',
+      'current-text',
+      'clear-text',
+      'close-text',
+      'close-on-date-selection',
+      'datepicker-append-to-body'
+    ];
+
+    var bindings = [
+      'datepicker-mode',
+      'min-date',
+      'max-date'
+    ];
+
     var ngModelAttrs = {};
+
     angular.forEach(attributes, function(attr) {
-      ngModelAttrs[camelize(attr)] = {
-        attribute: attr
-      };
+      ngModelAttrs[camelize(attr)] = {attribute: attr};
     });
+
     angular.forEach(bindings, function(binding) {
-      ngModelAttrs[camelize(binding)] = {
-        bound: binding
-      };
+      ngModelAttrs[camelize(binding)] = {bound: binding};
     });
+
+    console.log(ngModelAttrs);
+
     formlyConfig.setType({
       name: 'datepicker',
-      templateUrl: 'datepicker.html',
+      templateUrl:  'datepicker.html',
       wrapper: ['bootstrapLabel', 'bootstrapHasError'],
       defaultOptions: {
         ngModelAttrs: ngModelAttrs,
@@ -213,11 +238,13 @@ angular
           }
         }
       },
-        controller: ['$scope', function($scope) {
+      controller: ['$scope', function ($scope) {
         $scope.datepicker = {};
+
         $scope.datepicker.opened = false;
-        $scope.datepicker.open = function($event) {
-          $scope.datepicker.opened = true;
+
+        $scope.datepicker.open = function ($event) {
+          $scope.datepicker.opened = !$scope.datepicker.opened;
         };
       }]
     });
@@ -226,12 +253,13 @@ angular
       string = string.replace(/[\-_\s]+(.)?/g, function(match, chr) {
         return chr ? chr.toUpperCase() : '';
       });
-        // Ensure 1st char is always lowercase
+      // Ensure 1st char is always lowercase
       return string.replace(/^([A-Z])/, function(match, chr) {
         return chr ? chr.toLowerCase() : '';
       });
     }
   })
+
   .config(function ($routeProvider,$locationProvider) {
     $locationProvider.html5Mode(true);
     $routeProvider
