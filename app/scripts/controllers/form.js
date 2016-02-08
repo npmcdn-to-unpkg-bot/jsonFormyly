@@ -225,7 +225,7 @@ angular.module('testAppJsonApp')
           $location.path('/simple');
         console.log(vm.model);
 
-      }, 1000);
+      }, 2000);
       //$http.post('url', model); // или весб обект модель шлем или нет?
     }
 
