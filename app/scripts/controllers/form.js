@@ -8,23 +8,22 @@
  * Controller of the testAppJsonApp
  */
 angular.module('testAppJsonApp')
-  .controller('FormCtrl', function($location) {
+  .controller('FormCtrl', function($location, $timeout, $scope, $cookies) {
     var vm = this;
-    vm.model = {};
+    vm.model = $cookies.get('model') || {};
+    console.log($cookies.get('model'));
     vm.options = {};
     vm.htmlEditor = '...';
     vm.code = "alert('hello world');";
-    var myConfig = [
-      {
-         key: 'date',
-         type: 'datepicker',
-         templateOptions: {
-           label: 'Date 1',
-           type: 'text',
-           datepickerPopup: 'dd-MMMM-yyyy'
-         }
-     },
-      {
+    var myConfig = [{
+        key: 'date',
+        type: 'datepicker',
+        templateOptions: {
+          label: 'Date 1',
+          type: 'text',
+          datepickerPopup: 'dd-MMMM-yyyy'
+        }
+      }, {
         type: 'editor',
         key: 'editor',
         noFormControl: true,
@@ -62,16 +61,22 @@ angular.module('testAppJsonApp')
           maxlength: 1000,
           minlength: 2
         }
-      },   {
-  key: 'roles',
-  type: 'multiCheckbox',
-  templateOptions: {
-    label: 'Roles',
-    options: [{id: 1, title : "Administrator"}, {id: 2, title : "User"}],
-    valueProp: 'id',
-    labelProp: 'title'
-  }
-}, {
+      }, {
+        key: 'roles',
+        type: 'multiCheckbox',
+        templateOptions: {
+          label: 'Roles',
+          options: [{
+            id: 'admin',
+            title: "Administrator"
+          }, {
+            id: 'user',
+            title: "User"
+          }],
+          valueProp: 'id',
+          labelProp: 'title'
+        }
+      }, {
         "key": "triedEmber",
         "type": "radio",
         "templateOptions": {
@@ -208,10 +213,18 @@ angular.module('testAppJsonApp')
 
     function SimplePost() {
       // функция есть в конфиги и подхватывает контроллер
-      alert(vm.model, "счас будет перход");
-      $location.path('/simple');
+      // e.stopPropagation();
+       $cookies.put('model', vm.model);
+      $timeout(function() {
+        // alert("счас будет перход");
+        // console.log($location.path('/simple'));
+        $location.path('/simple');
+        console.log(vm.model);
+
+      }, 1000);
       //$http.post('url', model); // или весб обект модель шлем или нет?
     }
+
     // вот к примеру если у нас в кофиге там пут
     function SimplePut() {
       // функция есть в конфиги и подхватывает контроллер

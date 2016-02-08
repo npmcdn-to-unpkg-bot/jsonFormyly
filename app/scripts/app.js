@@ -22,7 +22,7 @@ angular
     'formlyBootstrap',
     'ckeditor',
     'ui.bootstrap',
-     'ui.ace'
+    'ui.ace'
   ],
     function config(formlyConfigProvider) {
     // set templates here
@@ -120,7 +120,7 @@ angular
     .run(function(formlyConfig, appApiCheck) {
       formlyConfig.setType({
         name: 'btnPOST',
-        template: '<div><button type="{{::to.type}}" class="btn btn-{{::to.btnType}}" ng-click="onClick($event)">Post button</button></div>',
+        template: '<div><a class="btn btn-{{::to.btnType}}" ng-click="onClick()">Post button</a></div>',
         wrapper: ['bootstrapLabel'],
         defaultOptions: {
           templateOptions: {
@@ -267,10 +267,9 @@ angular
         template: '<div class="container"><custom-form></custom-form></div>'
       })
       .when('/simple', {
-        templateUrl: 'views/simple.html'
-        // ,
-        // controller: 'MainCtrl',
-        // controllerAs: 'main'
+        templateUrl: 'views/simple.html',
+        controller: 'FormCtrl',
+        controllerAs: 'vm'
       })
       .when('/onemore', {
         templateUrl: 'views/onemore.html'
