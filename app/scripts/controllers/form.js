@@ -10,8 +10,10 @@
 angular.module('testAppJsonApp')
   .controller('FormCtrl', function($location, $timeout, $scope, $cookies) {
     var vm = this;
-    vm.model = $cookies.get('model') || {};
+    vm.model = {};
+
     console.log($cookies.get('model'));
+
     vm.options = {};
     vm.htmlEditor = '...';
     vm.code = "alert('hello world');";
@@ -214,11 +216,13 @@ angular.module('testAppJsonApp')
     function SimplePost() {
       // функция есть в конфиги и подхватывает контроллер
       // e.stopPropagation();
-       $cookies.put('model', vm.model);
+       $cookies.put('model', JSON.stringify(vm.model));
       $timeout(function() {
         // alert("счас будет перход");
         // console.log($location.path('/simple'));
-        $location.path('/simple');
+
+
+          $location.path('/simple');
         console.log(vm.model);
 
       }, 1000);
@@ -236,5 +240,8 @@ angular.module('testAppJsonApp')
     }
     vm.text = 'this is test';
     vm.fields = myConfig;
-
+    if($cookies.get('model')){
+      vm.model = JSON.parse($cookies.get('model'));
+      vm.simple = vm.model;
+    }
   });
